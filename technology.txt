@@ -1,1 +1,5 @@
-Python
+Technologies that are used:
+1. Python
+2. OpenCV
+3. MeteorJS
+4. MongoDB
