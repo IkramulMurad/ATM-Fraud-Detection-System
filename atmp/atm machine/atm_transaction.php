@@ -10,34 +10,38 @@
   if($conn) echo "Connected Successfully";
 
   if($_POST){
-    $_SESSION["card_no"] = $_POST["card_no"];
-
+    
     $errors = array();
     
-    if(empty($_POST["card_no"])){
-      $errors["card_e_error"] = "Card number can't be empty";
+    if(empty($_POST["amount"])){
+      $errors["amount_e_error"] = "Amount can't be empty";
     }
 
+    $amount = (int)$_POST["amount"];
+    if($amount < 100){
+      $errors["amount_less_error"] = "Amount should be at least 100.";
+    }
+
+    echo $_SESSION["card_no"] . "found";
+
+    $query = "SELECT * FROM user JOIN card ON user.account_number = card.account_number WHERE card.card_number = '" . $_SESSION["card_no"] . "'";
+    $result = mysqli_query($conn, $query);
+    
+    $row = mysqli_fetch_assoc($result);
+    echo "<br>" . $row["balance"] . " - " . $row["account_number"];
+
+    $newBalance = (float)$row["balance"] - $amount;
+    echo $newBalance;
 
     if(count($errors) == 0){
-      $query = "SELECT * FROM card WHERE card_number = '" . $_POST["card_no"] . "'";
 
-      $result = mysqli_query($conn, $query);
-      
-      $row = mysqli_fetch_assoc($result);
-      echo $row["card_number"]." - ".$row["card_state"]." - ".$row["pin"];
-      
-
-      if(mysqli_num_rows($result) == 0){
-        header('Location: atm_cardinvalid.php');
-        exit();
-      }
-      else if($row["card_state"] == 0){
-        header('Location: atm_cardinactive.php');
-        exit();
+      if((int)$row["balance"] < $amount){
+        $errors["amount_insuf_error"] = "Insufficient balance!";  
       }
       else{
-        header('Location: atm_cardauthentication.php');
+        $query = "UPDATE user SET balance = '" . $newBalance . "' WHERE account_number = '" . $row["account_number"] . "'";
+        mysqli_query($conn, $query);
+        header('Location: atm_success.php');
         exit();
       }
     }
@@ -63,10 +67,12 @@
               <span>Fraud Detection System</span>
           </h1>
           <label>
-              <span>Enter Amounts :</span>
-              <input id="card_no" type="text" name="card_no" placeholder="Enter Your Card Number.." />
+              <span>Enter Amount :</span>
+              <input id="amount" type="text" name="amount" placeholder="Enter Your Amount.." />
               <?php
-                if(isset($errors["card_e_error"])) echo "<p style='color: red;'>" . $errors["card_e_error"] . "</p>";
+                if(isset($errors["amount_e_error"])) echo "<p style='color: red;'>" . $errors["amount_e_error"] . "</p>";
+                if(isset($errors["amount_less_error"])) echo "<p style='color: red;'>" . $errors["amount_less_error"] . "</p>";
+                if(isset($errors["amount_insuf_error"])) echo "<p style='color: red;'>" . $errors["amount_insuf_error"] . "</p>";
               ?>
           </label> <br>
 
