@@ -1,6 +1,6 @@
 1. Go to working folder(It must contain .git folder)
 2. Open git bash
-3. Create new branch (git branch branch-name)
+3. Create new branch (git branch branch-name, git checkout branch-name)
 4. Do your all works
 5. Add all changes (git add .)
 6. Commit your work (git commit -m "your message")
