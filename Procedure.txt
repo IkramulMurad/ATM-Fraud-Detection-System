@@ -1,0 +1,12 @@
+1. Go to working folder(It must contain .git folder)
+2. Open git bash
+3. Create new branch (git branch branch-name, git checkout branch-name)
+4. Do your all works
+5. Add all changes (git add .)
+6. Commit your work (git commit -m "your message")
+7. Push your work (git push --set-upstream origin branch-name)
+8. Create new pull request from web browser (Caution: don't merge it)
+9. Merge to master in local repo
+	-> (git checkout master)
+	-> (git merge branch-name)
+10. Delete working branch (git branch -d branch-name)
