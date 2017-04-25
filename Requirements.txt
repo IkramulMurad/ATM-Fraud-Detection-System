@@ -1,4 +1,5 @@
 Requirements to test facerecognition:
 1. Python 2.7.13
 2. OpenCV 2.4.13
-3. SQLite3
+3. numpy (Numeric Python)
+4. PIL (Python Image Library)
