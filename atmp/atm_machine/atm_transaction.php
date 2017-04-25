@@ -7,7 +7,7 @@
   $db = "projectDB";
 
   $conn = mysqli_connect($server, $user, $password, $db);
-  if($conn) echo "Connected Successfully";
+  //if($conn) echo "Connected Successfully";
 
   if($_POST){
     
@@ -22,16 +22,16 @@
       $errors["amount_less_error"] = "Amount should be at least 100.";
     }
 
-    echo $_SESSION["card_no"] . "found";
+    //echo $_SESSION["card_no"] . "found";
 
     $query = "SELECT * FROM user JOIN card ON user.account_number = card.account_number WHERE card.card_number = '" . $_SESSION["card_no"] . "'";
     $result = mysqli_query($conn, $query);
     
     $row = mysqli_fetch_assoc($result);
-    echo "<br>" . $row["balance"] . " - " . $row["account_number"];
+    //echo "<br>" . $row["balance"] . " - " . $row["account_number"];
 
     $newBalance = (float)$row["balance"] - $amount;
-    echo $newBalance;
+    //echo $newBalance;
 
     if(count($errors) == 0){
 
@@ -40,9 +40,20 @@
       }
       else{
         $query = "UPDATE user SET balance = '" . $newBalance . "' WHERE account_number = '" . $row["account_number"] . "'";
-        mysqli_query($conn, $query);
-        header('Location: atm_success.php');
-        exit();
+        $myfile = fopen("query.txt", "w"); fwrite($myfile, $query); fclose($myfile);
+
+        if ($_SESSION["auth"] == "face") {
+          //mysqli_query($conn, $query);
+          header('Location: atm_success.php');
+          exit();
+        }
+        else if($_SESSION["auth"] == "pin"){
+          $myfile = fopen("../client/clrl.txt", "w"); fwrite($myfile, "1"); fclose($myfile);
+
+          //header('Location: atm_success.php');
+          header('Location: atm_confirmclient.php');
+          exit();
+        }
       }
     }
 

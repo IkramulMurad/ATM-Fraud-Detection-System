@@ -1,3 +1,17 @@
+<?php
+  session_start();
+
+  $server = "localhost";
+  $user = "root";
+  $password = "";
+  $db = "projectDB";
+
+  $myfile = fopen("atrl.txt", "w"); fwrite($myfile, "0"); fclose($myfile);
+
+  session_destroy();
+  header('Refresh : 10; url = atm_cardenter.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
