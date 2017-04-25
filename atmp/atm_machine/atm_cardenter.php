@@ -9,6 +9,8 @@
   $conn = mysqli_connect($server, $user, $password, $db);
   if($conn) echo "Connected Successfully";
 
+  $myfile = fopen("alert.txt", "w"); fwrite($myfile, "0"); fclose($myfile);
+
   if($_POST){
     $_SESSION["card_no"] = $_POST["card_no"];
 

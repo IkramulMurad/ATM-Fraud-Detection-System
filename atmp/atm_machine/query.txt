@@ -1,1 +1,1 @@
-UPDATE user SET balance = '500' WHERE account_number = '1202'
+UPDATE user SET balance = '400' WHERE account_number = '1202'
