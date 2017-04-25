@@ -7,7 +7,9 @@
   $db = "projectDB";
 
   $conn = mysqli_connect($server, $user, $password, $db);
-  if($conn) echo "Connected Successfully";
+  //if($conn) echo "Connected Successfully";
+  $myfile = fopen("card.txt", "r"); $card = fread($myfile, filesize("card.txt")); fclose($myfile);
+  echo $card;
 
   if(isset($_POST["logout"])){
     session_destroy();
@@ -16,7 +18,8 @@
   }
 
   if(isset($_POST["on"])){
-    $query = "UPDATE card SET card_state = 1 WHERE card_number = '" . $_SESSION["card_no"] . "'";
+    
+    $query = "UPDATE card SET card_state = 1 WHERE card_number = '" . $card . "'";
     mysqli_query($conn, $query);
 
     header('Location: client_card_deactivation.php');

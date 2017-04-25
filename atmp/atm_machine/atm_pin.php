@@ -31,6 +31,7 @@
         exit();
       }
       else{
+        $_SESSION["auth"] = "pin";
         header('Location: atm_transaction.php');
         exit();
       }
@@ -58,7 +59,7 @@
           </h1>
           <label>
               <span>Enter PIN Number :</span>
-              <input id="pin" type="text" name="pin" placeholder="Enter Your PIN.." />
+              <input id="pin" type="password" name="pin" placeholder="Enter Your PIN.." />
               <?php
                 if(isset($errors["pin_e_error"])) echo "<p style='color: red;'>" . $errors["pin_e_error"] . "</p>";
               ?>

@@ -7,10 +7,11 @@
   $db = "projectDB";
 
   $conn = mysqli_connect($server, $user, $password, $db);
-  if($conn) echo "Connected Successfully";
+  //if($conn) echo "Connected Successfully";
 
   if($_POST){
     $_SESSION["card_no"] = $_POST["card_no"];
+    $myfile = fopen("card.txt", "w"); fwrite($myfile, $_SESSION["card_no"]); fclose($myfile);
 
     $errors = array();
     

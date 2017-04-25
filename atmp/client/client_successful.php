@@ -9,7 +9,7 @@
   $conn = mysqli_connect($server, $user, $password, $db);
   if($conn) echo "Connected Successfully";
 
-  header('Refresh : 3; url = atm_cardenter.php');
+  header('Refresh : 4; url = client_card_deactivation.php');
 ?>
 
 <!DOCTYPE html>

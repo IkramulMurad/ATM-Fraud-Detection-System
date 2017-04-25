@@ -1,3 +1,7 @@
+<?php
+	header('Refresh : 4; url = client_card_deactivation.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +18,7 @@
       <span>Fraud Detection System</span>
     </h1>
 
-    <p style="font-size: 20px;">Confirm your transaction from your account.</p>
+    <p style="font-size: 20px;">Insecure Transaction Attempt.</p>
 
     </div>
 

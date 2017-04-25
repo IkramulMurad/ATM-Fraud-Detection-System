@@ -1,0 +1,1 @@
+UPDATE user SET balance = '500' WHERE account_number = '1202'
