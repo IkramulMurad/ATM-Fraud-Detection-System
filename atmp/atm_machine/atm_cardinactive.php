@@ -7,7 +7,7 @@
   $db = "projectDB";
 
   $conn = mysqli_connect($server, $user, $password, $db);
-  if($conn) echo "Connected Successfully";
+  //if($conn) echo "Connected Successfully";
 
   if(isset($_POST["submit"])){
     header('Location: atm_cardenter.php');

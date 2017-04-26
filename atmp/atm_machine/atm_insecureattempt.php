@@ -10,7 +10,7 @@
   $myfile = fopen("alert.txt", "w"); fwrite($myfile, "1"); fclose($myfile);
 
   session_destroy();
-  header('Refresh : 18; url = atm_cardenter.php');
+  header('Refresh : 7; url = atm_cardenter.php');
 ?>
 
 <!DOCTYPE html>

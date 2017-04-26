@@ -7,7 +7,7 @@
   $db = "projectDB";
 
   $conn = mysqli_connect($server, $user, $password, $db);
-  if($conn) echo "Connected Successfully";
+  //if($conn) echo "Connected Successfully";
 
   if(isset($_POST["home"])){
     header('Location: admin_home.php');

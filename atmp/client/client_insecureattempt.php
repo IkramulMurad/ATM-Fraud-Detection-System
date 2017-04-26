@@ -1,5 +1,5 @@
 <?php
-	header('Refresh : 4; url = client_card_deactivation.php');
+	header('Refresh : 3; url = client_card_deactivation.php');
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
       <span>Fraud Detection System</span>
     </h1>
 
-    <p style="font-size: 20px;">Insecure Transaction Attempt.</p>
+    <p style="font-size: 20px;">A report message is sent.</p>
 
     </div>
 

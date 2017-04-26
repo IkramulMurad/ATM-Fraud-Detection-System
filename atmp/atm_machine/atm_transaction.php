@@ -43,14 +43,12 @@
         $myfile = fopen("query.txt", "w"); fwrite($myfile, $query); fclose($myfile);
 
         if ($_SESSION["auth"] == "face") {
-          //mysqli_query($conn, $query);
           header('Location: atm_success.php');
           exit();
         }
         else if($_SESSION["auth"] == "pin"){
           $myfile = fopen("../client/clrl.txt", "w"); fwrite($myfile, "1"); fclose($myfile);
 
-          //header('Location: atm_success.php');
           header('Location: atm_confirmclient.php');
           exit();
         }

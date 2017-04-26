@@ -7,7 +7,7 @@
   $db = "projectDB";
 
   $conn = mysqli_connect($server, $user, $password, $db);
-  if($conn) echo "Connected Successfully";
+  //if($conn) echo "Connected Successfully";
 
   if(isset($_POST["submit"])){
     header('Location: atm_pin.php');
@@ -32,7 +32,7 @@
           <h1>ATM 
               <span>Fraud Detection System</span>
           </h1>
-          <p style="font-size: 20px;">Invalid PIN!</p>
+          <p style="font-size: 20px;">Incorrect PIN!</p>
 
            <label>
               <span>&nbsp;</span> 

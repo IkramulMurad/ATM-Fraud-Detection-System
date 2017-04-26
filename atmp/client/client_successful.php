@@ -7,9 +7,9 @@
   $db = "projectDB";
 
   $conn = mysqli_connect($server, $user, $password, $db);
-  if($conn) echo "Connected Successfully";
+  //if($conn) echo "Connected Successfully";
 
-  header('Refresh : 4; url = client_card_deactivation.php');
+  header('Refresh : 3; url = client_card_deactivation.php');
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +29,6 @@
               <span>Fraud Detection System</span>
           </h1>
           <p style="font-size: 20px;">Transaction Succesfull!</p>
-          <p style="font-size: 20px;">Thank You</p>
 
       </form>
 
