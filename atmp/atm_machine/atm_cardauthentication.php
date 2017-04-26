@@ -7,7 +7,7 @@
   $db = "projectDB";
 
   $conn = mysqli_connect($server, $user, $password, $db);
-  if($conn) echo "Connected Successfully";
+  //if($conn) echo "Connected Successfully";
 
   if(isset($_POST["face"])){
     header('Location: atm_face.php');

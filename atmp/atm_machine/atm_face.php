@@ -7,7 +7,7 @@
   $db = "projectDB";
 
   $conn = mysqli_connect($server, $user, $password, $db);
-  if($conn) echo "Connected Successfully";
+  //if($conn) echo "Connected Successfully";
   
   $query = "SELECT account_number FROM card WHERE card_number = '" . $_SESSION["card_no"] . "'";
   $res = mysqli_query($conn, $query);

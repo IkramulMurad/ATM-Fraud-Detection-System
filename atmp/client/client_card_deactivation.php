@@ -57,7 +57,7 @@
     </div>
 
     <script>
-        setInterval(checkVariableValue, 5000);
+        setInterval(checkVariableValue, 2500);
         function checkVariableValue() {
              $.ajax({
                   method: 'POST',
